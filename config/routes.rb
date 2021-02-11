@@ -5,4 +5,8 @@ Rails.application.routes.draw do
 
   # GET /profiles
   get "profiles", to: "profiles#list"
+  # GET /profiles
+  get "new", to: "profiles#new"
+  # POST /profiles
+  post "new", to: "profiles#create"
 end

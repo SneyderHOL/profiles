@@ -1,0 +1,31 @@
+<h1>New Profile</h1>
+
+<%= form_with model: @user, url:new_path do |form| %>
+  <div class="mb-3">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", placeholder: "user@example.com" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :username, class: "form-label" %>
+    <%= form.text_field :username, class: "form-control", placeholder: "Niceguy" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :firstname, "First Name", class: "form-label" %>
+    <%= form.text_field :firstname, class: "form-control", placeholder: "Your First Name Here" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :lastname, "Last Name", class: "form-label" %>
+    <%= form.text_field :lastname, class: "form-control", placeholder: "Your Last Name Here" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :password, class: "form-label" %>
+    <%= form.password_field :password, class: "form-control", placeholder: "Your Password Here" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :password_confirmation, class: "form-label" %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Your Password Here" %>
+  </div>
+  <div>
+    <%= form.submit "Send", class: "btn btn-primary" %>
+  </div>
+<% end %>
