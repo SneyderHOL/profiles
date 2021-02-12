@@ -4,34 +4,58 @@
   <div class="mb-3">
     <%= form.label :email, class: "form-label" %>
     <%= form.email_field :email, class: "form-control", placeholder: "user@example.com" %>
+    <% @user.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div class="mb-3">
     <%= form.label :username, class: "form-label" %>
     <%= form.text_field :username, class: "form-control", placeholder: "Niceguy" %>
+    <% @user.errors.full_messages_for(:username).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div class="mb-3">
     <%= form.label :firstname, "First Name", class: "form-label" %>
     <%= form.text_field :firstname, class: "form-control", placeholder: "Your First Name Here" %>
+    <% @user.errors.full_messages_for(:firstname).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div class="mb-3">
     <%= form.label :lastname, "Last Name", class: "form-label" %>
     <%= form.text_field :lastname, class: "form-control", placeholder: "Your Last Name Here" %>
+    <% @user.errors.full_messages_for(:lastname).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div class="mb-3">
     <%= form.label :bio, class: "form-label" %>
     <%= form.text_field :bio, class: "form-control", placeholder: "I am a nice guy" %>
+    <% @user.errors.full_messages_for(:bio).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div class="mb-3">
     <%= form.label :socialmedia, "Social Media", class: "form-label" %>
     <%= form.text_field :socialmedia, class: "form-control", placeholder: "twitter.com/Niceguy" %>
+    <% @user.errors.full_messages_for(:socialmedia).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div class="mb-3">
     <%= form.label :password, class: "form-label" %>
     <%= form.password_field :password, class: "form-control", placeholder: "Your Password Here" %>
+    <% @user.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div class="mb-3">
     <%= form.label :password_confirmation, class: "form-label" %>
     <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Your Password Here" %>
+    <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div>
     <%= form.submit "Send", class: "btn btn-primary" %>
