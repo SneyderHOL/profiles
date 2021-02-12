@@ -18,6 +18,14 @@
     <%= form.text_field :lastname, class: "form-control", placeholder: "Your Last Name Here" %>
   </div>
   <div class="mb-3">
+    <%= form.label :bio, class: "form-label" %>
+    <%= form.text_field :bio, class: "form-control", placeholder: "I am a nice guy" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :socialmedia, class: "form-label" %>
+    <%= form.text_field :socialmedia, class: "form-control", placeholder: "twitter.com/Niceguy" %>
+  </div>
+  <div class="mb-3">
     <%= form.label :password, class: "form-label" %>
     <%= form.password_field :password, class: "form-control", placeholder: "Your Password Here" %>
   </div>

@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_02_11_193948) do
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "password_digest"
+    t.string "bio"
+    t.string "socialmedia"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
