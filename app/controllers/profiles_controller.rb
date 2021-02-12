@@ -6,14 +6,14 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-  def list
+  def index
     @users = User.all
   end
 
   def create
     @user = User.new(user_param)
     if @user.save
-      redirect_to list_path
+      redirect_to profiles_path
     else
       render :new
     end
