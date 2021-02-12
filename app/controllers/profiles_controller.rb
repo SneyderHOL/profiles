@@ -3,6 +3,9 @@ class ProfilesController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
   def list
     @users = User.all
   end
@@ -14,6 +17,12 @@ class ProfilesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
