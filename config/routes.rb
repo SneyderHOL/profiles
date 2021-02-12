@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "new", to: "profiles#new"
   # POST /new
   post "new", to: "profiles#create"
+  # GET /list
+  get "list", to: "profiles#list"
 end

@@ -4,12 +4,13 @@ class ProfilesController < ApplicationController
   end
 
   def list
+    @users = User.all
   end
 
   def create
     @user = User.new(user_param)
     if @user.save
-      redirect_to root_path
+      redirect_to list_path
     else
       render :new
     end
