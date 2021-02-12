@@ -19,8 +19,8 @@
         <td><%= user.bio %></td>
         <td><%= user.socialmedia %></td>
         <td><%= link_to 'Show', user_path(user) %></td>
-        <td><%= link_to 'Edit', users_path %></td>
-        <td><%= link_to 'Destroy', users_path %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: "are you sure?" }  %></td>
       </tr>
     <% end %>
   </tbody>

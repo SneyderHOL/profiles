@@ -30,3 +30,6 @@
 <div>
   <%= link_to "Edit", edit_user_path(@user) %>
 </div>
+<div>
+  <%= link_to "Destroy", user_path(@user), method: :delete, data: { confirm: "are you sure?" } %>
+</div>
