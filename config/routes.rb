@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   # GET /list
   get "list", to: "profiles#list"
 =end
-  resources :profiles
+  resources :users
 end
