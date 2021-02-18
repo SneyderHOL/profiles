@@ -25,6 +25,18 @@
     <label for="socialmedia" class="form-label">Social media</label>
     <input type="text" id="socialmedia" class="form-control", value="<%= @user.socialmedia %>">
   </div>
+  <div class="mb-3">
+    <% @user.socials.each do |social| %>
+      <div class="mb-3">
+        <label for="social_name<%= social.id %>" class="form-label">Name</label>
+        <input type="text" id="social_name<%= social.id %>" class="form-control", value="<%= social.name %>">
+      </div>
+      <div class="mb-3">
+        <label for="social_link<%= social.id %>" class="form-label">Link</label>
+        <input type="text" id="social_link<%= social.id %>" class="form-control", value="<%= social.link %>">
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div>
