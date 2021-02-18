@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.socials.build
   end
 
   def show
@@ -15,16 +16,31 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
-      redirect_to users_path
+        redirect_to users_path
     else
       render :new
     end
+
+=begin
+    if params[:add_social]
+      @user.socials.build
+    elsif params[remove_social]
+      #
+    else
+      if @user.save
+        redirect_to users_path
+      end
+    end
+    render :new
+=end
   end
 
   def edit
     @user = User.find(params[:id])
   end
+  
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -41,8 +57,23 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def add_social
+    # @user ||= User.find(params[:id])
+    # @user.socials.build
+    render "add_social"
+  end
+
   private
   def user_params
-    params.require(:user).permit(:email, :username, :firstname, :lastname, :bio, :socialmedia, :password, :password_confirmation)
+    params.require(:user)
+          .permit(:email,
+                  :username,
+                  :firstname,
+                  :lastname,
+                  :bio, 
+                  :socialmedia,
+                  :password,
+                  :password_confirmation,
+                  socials_attributes: [:id, :name, :link])
   end
 end

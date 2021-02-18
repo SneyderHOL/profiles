@@ -55,7 +55,17 @@
       <div><%= message %></div>
     <% end %>
   </div>
+  <div class="mb-3">Social Media:
+    <%= form.fields_for :socials do |socials_form| %>
+      <%= render 'add_social', social: socials_form %>
+    <% end %>
+  </div>
   <div>
-    <%= form.submit "Send", class: "btn btn-primary" %>
+    <span>
+      <%=form.submit "Add social field", :name => :add_social %>
+    </span>
+    <div>
+      <%= form.submit "Send", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>
