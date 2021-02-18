@@ -15,5 +15,13 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :firstname, presence: true
   validates :lastname, presence: true
-
+  
+  def social_media(social_media = nil)
+    links = []
+    if social_media
+      social_media.each { |social| links.push(social.link)}
+      return links.join(", ")
+    end
+    ""
+  end
 end

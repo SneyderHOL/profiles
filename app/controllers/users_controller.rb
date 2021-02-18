@@ -57,12 +57,6 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  def add_social
-    # @user ||= User.find(params[:id])
-    # @user.socials.build
-    render "add_social"
-  end
-
   private
   def user_params
     params.require(:user)
@@ -71,7 +65,6 @@ class UsersController < ApplicationController
                   :firstname,
                   :lastname,
                   :bio, 
-                  :socialmedia,
                   :password,
                   :password_confirmation,
                   socials_attributes: [:id, :name, :link])
