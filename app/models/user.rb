@@ -7,7 +7,7 @@ password:string virtual
 password_confirmation:string virtual
 =end
 class User < ApplicationRecord
-  has_many :socials
+  has_many :socials, dependent: :delete_all
   accepts_nested_attributes_for :socials, reject_if: proc { |attributes| attributes['name'].blank? || attributes['link'].blank?}
   has_secure_password
 

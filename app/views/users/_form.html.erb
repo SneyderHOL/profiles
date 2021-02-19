@@ -49,13 +49,15 @@
     <% end %>
   </div>
   <div class="mb-3" id="div_social">Social Media:
-    <div id="social_fields">
+    <% index = 0 %>
+      <div id="social_fields">
       <%= form.fields_for :socials do |socials_form| %>
-        <fieldset id="0">
+        <fieldset id="<%= "#{index}" %>">
+          <% index += 1 %>
           <%= render 'add_social', social: socials_form %>
         </fieldset>
       <% end %>
-    </div>
+      </div>
     <button type="button" id="add_social">Add New Social Media</button>
   </div>
   <div>
