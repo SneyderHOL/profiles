@@ -35,13 +35,6 @@
     <% end %>
   </div>
   <div class="mb-3">
-    <%= form.label :socialmedia, "Social Media", class: "form-label" %>
-    <%= form.text_field :socialmedia, class: "form-control", placeholder: "twitter.com/Niceguy" %>
-    <% @user.errors.full_messages_for(:socialmedia).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div class="mb-3">
     <%= form.label :password, class: "form-label" %>
     <%= form.password_field :password, class: "form-control", placeholder: "Your Password Here" %>
     <% @user.errors.full_messages_for(:password).each do |message| %>
@@ -55,17 +48,17 @@
       <div><%= message %></div>
     <% end %>
   </div>
-  <div class="mb-3">Social Media:
-    <%= form.fields_for :socials do |socials_form| %>
-      <%= render 'add_social', social: socials_form %>
-    <% end %>
+  <div class="mb-3" id="div_social">Social Media:
+    <div id="social_fields">
+      <%= form.fields_for :socials do |socials_form| %>
+        <fieldset id="0">
+          <%= render 'add_social', social: socials_form %>
+        </fieldset>
+      <% end %>
+    </div>
+    <button type="button" id="add_social">Add New Social Media</button>
   </div>
   <div>
-    <span>
-      <%=form.submit "Add social field", :name => :add_social %>
-    </span>
-    <div>
-      <%= form.submit "Send", class: "btn btn-primary" %>
-    </div>
+    <%= form.submit "Send", class: "btn btn-primary" %>
   </div>
 <% end %>

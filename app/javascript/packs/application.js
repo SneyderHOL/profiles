@@ -11,3 +11,11 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import { addField } from './addNewField'
+
+document.addEventListener('turbolinks:load', () => {
+  if (document.querySelector('#social_fields')) {
+    addField()
+  }
+});
