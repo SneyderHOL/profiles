@@ -21,7 +21,7 @@
     <label for="bio" class="form-label">Bio</label>
     <input type="text" id="bio" class="form-control", value="<%= @user.bio %>">
   </div>
-  <div class="mb-3">
+  <div class="mb-3">Social Media
     <% @user.socials.each do |social| %>
       <div class="mb-3">
         <label for="social_name<%= social.id %>" class="form-label">Name</label>
