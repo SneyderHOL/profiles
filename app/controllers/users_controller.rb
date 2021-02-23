@@ -22,19 +22,6 @@ class UsersController < ApplicationController
     else
       render :new
     end
-
-=begin
-    if params[:add_social]
-      @user.socials.build
-    elsif params[remove_social]
-      #
-    else
-      if @user.save
-        redirect_to users_path
-      end
-    end
-    render :new
-=end
   end
 
   def edit
@@ -43,12 +30,15 @@ class UsersController < ApplicationController
   end
   
   def update
+
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to users_path
     else
       render :show
     end
+
+    #render plain: params
   end
 
   def destroy
@@ -68,6 +58,7 @@ class UsersController < ApplicationController
                   :bio, 
                   :password,
                   :password_confirmation,
+                  :image,
                   socials_attributes: [:id, :name, :link])
   end
 end

@@ -28,6 +28,19 @@
     <% end %>
   </div>
   <div class="mb-3">
+    <% if user.image.attached? %>
+      <div class="mb-3 profile_image">
+        <%= image_tag user.image, style: "width: 100%" %>
+      </div>
+    <% end %>
+    
+    <%= form.label :image, "Profile picture", class: "form-label" %>
+    <%= form.file_field :image, class: "form-control", accept: "image/png, image/jpeg" %>
+    <% @user.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div class="mb-3">
     <%= form.label :bio, class: "form-label" %>
     <%= form.text_field :bio, class: "form-control", placeholder: "I am a nice guy" %>
     <% @user.errors.full_messages_for(:bio).each do |message| %>

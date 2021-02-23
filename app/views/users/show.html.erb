@@ -1,6 +1,11 @@
 <h1>Show Profile</h1>
 
 <div>
+  <% if @user.image.attached? %>
+    <div class="mb-3 profile_image">
+      <%= image_tag @user.image, style: "width: 100%" %>
+    </div>
+  <% end %>
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input type="text" id="email" class="form-control", value="<%= @user.email %>">
