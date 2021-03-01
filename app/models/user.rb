@@ -12,8 +12,12 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :socials, reject_if: proc { |attributes| attributes['name'].blank? || attributes['link'].blank?}
   has_secure_password
 
-  validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
-  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true,
+                    uniqueness: { case_sensitive: false },
+                    format: { with: /\A[^@\s]+@[^@\s]+\z/,
+                              message: "must be a valid email address"}
+  validates :username, presence: true,
+                       uniqueness: { case_sensitive: false }
   validates :firstname, presence: true
   validates :lastname, presence: true
   validate :image_type_validation
