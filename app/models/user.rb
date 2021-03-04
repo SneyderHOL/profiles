@@ -10,16 +10,11 @@ class User < ApplicationRecord
   has_many :socials, dependent: :delete_all
   has_one_attached :image
   accepts_nested_attributes_for :socials, reject_if: proc { |attributes| attributes['name'].blank? || attributes['link'].blank?}
-  has_secure_password
-
-  validates :email, presence: true,
-                    uniqueness: { case_sensitive: false },
-                    format: { with: /\A[^@\s]+@[^@\s]+\z/,
-                              message: "must be a valid email address"}
+  VALID_USERNAME_REGEX = /\A[\w]+/
   validates :username, presence: true,
-                       uniqueness: { case_sensitive: false }
-  validates :firstname, presence: true
-  validates :lastname, presence: true
+                       uniqueness: { case_sensitive: false },
+                       format: { with: VALID_USERNAME_REGEX }
+  validates :name, presence: true, length: { maximum: 50 } 
   validate :image_type_validation
   
   def social_media(social_media = nil)
