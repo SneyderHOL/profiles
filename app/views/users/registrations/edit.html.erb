@@ -32,10 +32,14 @@
   <div class="field mb-3" id="div_social">Social Media:
     <% index = 0 %>
       <div id="social_fields">
-        <%= f.fields_for :socials do |socials_form| %>
+        <%= f.fields_for :socials do |socials_field| %>
           <fieldset id="<%= "#{index}" %>">
             <% index += 1 %>
-            <%= render 'add_social', social: socials_form %>
+            <%= socials_field.label :name, "Name", class: "form-label" %>
+            <%= socials_field.text_field :name, class: "form-control" %>
+
+            <%= socials_field.label :link, "Link", class: "form-label" %>
+            <%= socials_field.text_field :link, class: "form-control" %>
           </fieldset>
         <% end %>
       </div>
