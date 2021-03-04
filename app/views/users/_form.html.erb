@@ -1,11 +1,4 @@
-<%= form_with model: user do |form| %>
-  <div class="mb-3">
-    <%= form.label :username, class: "form-label" %>
-    <%= form.text_field :username, class: "form-control", placeholder: "Your Username Here" %>
-    <% @user.errors.full_messages_for(:username).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+<%= form_with model: user, url: user_path() do |form| %>
   <div class="mb-3">
     <%= form.label :name, class: "form-label" %>
     <%= form.text_field :name, class: "form-control", placeholder: "Your Name Here" %>
